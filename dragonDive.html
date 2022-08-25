@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <?!= HtmlService.createHtmlOutputFromFile('css').getContent(); ?>
+  </head>
+  <body>
+    <h1 id="diveGen">堕天のドラゴンダイブじぇねれーたV1.2</h1>
+    <h3>開発版　一次公開</h3>
+    <h4>注意：サーバーから生成結果を取得しているため、更新に数秒かかります</h4>
+    <table border="1" id="buffTable">
+      <tr>
+        <th>ジョブ</th>
+        <th>サイコロ</th>
+        <th>ジャンプ</th>
+      </tr>
+    <?
+      const jobIconId = [  "1iOhAc9m0DRFGpSvTZ4gr3KzrKyni1Q8N",
+                            "1UrbatfXBpYtUoA_M-g3ngd9GQlaapjv1",
+                            "1lZ1HwDRbhTfhpgz0n4vzgNhu7OCihdtc",
+                            "1g5H1C9pgsxqBagW5WhmEJ5n2vgQ23Cen",
+                            "1peBDKQATiz-7HnDS2nGtUMri7y8CEQ5O",
+                            "1lIipb46fmx2PDvuG7G7ySJNVVpG2EA8G",
+                            "13TRtkmU3Q4BsqWLIindKj8_rfS1erVrS",
+                            "19nlVsV402KGM5W8FjRccinopYEqkrwGz"];
+      for(var i = 0; i < 8; i++){
+        output.append("<tr>");
+        var jobIconUrl = "https://drive.google.com/uc?export=view&id="+jobIconId[i];
+        var imgTag = "<img id='jobIcons' src='" + jobIconUrl + "'>";
+        output.append('<td id="tableCell" align=center valign=middle>' + imgTag + '</th>');
+        output.append('<td id="tableCell" align=center valign=middle><img ' + 'id="diceMem' + i + '" src="">' + '</td>');
+        output.append('<td id="tableCell" align=center valign=middle><img ' + 'id="jumpMem' + i + '" src="">' + '</td>');
+        output.append('</tr>');
+      }
+    ?>
+    </table>
+    <button id="reConfigure">設定/再設定</button><br><br>
+    ※設定/再設定ボタンを押すとサイコロ/ジャンプがランダムに入れ替わります※<br>
+    ※8人すべてハイジャンプになることがあるのは実際にあるかどうかは別として仕様です※<br>
+
+    <table border="1" hidden>
+      <tr>
+        <th>サイコロ</th>
+        <th>サイコロ1</th>
+        <th>サイコロ2</th>
+        <th>サイコロ3</th>
+      </tr>
+      <tr>
+        <td></th>
+        <td><img id='diceIcon0' src="https://drive.google.com/uc?export=view&id=1VVZHK0-xfxZYVhi_JIz69qK51s4tEwYB"></td>
+        <td><img id='diceIcon1' src="https://drive.google.com/uc?export=view&id=1nYweq5-Yeo26b0BHT3ptNkwUkf_Sw_8O"></td>
+        <td><img id='diceIcon2' src="https://drive.google.com/uc?export=view&id=1TrBbgdneO4yJLdqKg2IkL4UMIARqoiuN"></td>
+      </tr>
+      <tr>
+        <th>ジャンプ</th>
+        <th>ハイジャンプ</th>
+        <th>スパインジャンプ</th>
+        <th>イルーシブジャンプ</th>
+      </tr>
+      <tr>
+        <td></td>
+        <td><img id='jumpIcon0' src="https://drive.google.com/uc?export=view&id=1nKz5q0VNDfkUCzDeD5IvMro2XeNr_gyy"></td> 
+        <td><img id='jumpIcon1' src="https://drive.google.com/uc?export=view&id=16LLsVuYWMgabl3lGTgVIDBmNhuJNXOo9"></td>
+        <td><img id='jumpIcon2' src="https://drive.google.com/uc?export=view&id=1HZBwZDAKCdJjFyzE4-jrF9rxtG8DgfPP"></td>
+      </tr>
+    </table><br>
+
+    <a href="<?= getAppUrl() ?>?page=fourTower">4塔じぇねれーた(開発中)</a>
+
+    <?!= HtmlService.createHtmlOutputFromFile('js').getContent(); ?>
+  </body>
+</html>

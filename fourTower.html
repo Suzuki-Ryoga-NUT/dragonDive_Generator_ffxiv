@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <?!= HtmlService.createHtmlOutputFromFile('fourTower_css').getContent(); ?>
+  </head>
+  <body>
+    <a href="<?= getAppUrl() ?>?page=dragonDive">堕天のドラゴンダイブじぇねれーたに戻る</a>
+
+    <h3 id="msg_ft">ページ遷移テスト</h3>
+
+    <?!= HtmlService.createHtmlOutputFromFile('fourTower_js').getContent(); ?>
+  </body>
+</html>

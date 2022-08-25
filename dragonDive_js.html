@@ -1,0 +1,25 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+  $("#reConfigure").click(function(){
+    google.script.run.withSuccessHandler(reConfigureBuff)
+          .withFailureHandler(exceptionFailure)
+          .configureBuff();
+  });
+  
+  function reConfigureBuff(e){
+    var buffList = JSON.parse(e);
+    var diceBuff = buffList[0];
+    var jumpBuff = buffList[1];
+
+    for (var i = 0; i < diceBuff.length; i++){
+      $("#diceMem"+i).attr('src', $("#diceIcon"+buffList[0][i]).attr('src'));
+      $("#diceMem"+i).attr('width', '65px');
+      $("#jumpMem"+i).attr('src', $("#jumpIcon"+buffList[1][i]).attr('src'));
+      $("#jumpMem"+i).attr('width', '65px');
+    }
+  }
+  
+  function exceptionFailure(){
+    alert("Exception happened. Please report to administrator.");
+  }
+</script>
